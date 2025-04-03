@@ -309,7 +309,7 @@
         }
 
         .product-card {
-            min-width: calc(33.333% - 80px);
+            min-width: calc(31.5% - 20px);
             margin: 0 10px;
             background-color: white;
             border-radius: 8px;
@@ -799,7 +799,7 @@
             }
 
             .product-card {
-                min-width: calc(100% - 20px);
+                min-width: calc(100% - 48px);
             }
         }
 
@@ -1366,6 +1366,12 @@
                     <div class="slider-dot active" data-index="0"></div>
                     <div class="slider-dot" data-index="1"></div>
                     <div class="slider-dot" data-index="2"></div>
+                    <div class="slider-dot" data-index="3"></div>
+                    <div class="slider-dot" data-index="4"></div>
+                    <div class="slider-dot" data-index="5"></div>
+                    <div class="slider-dot" data-index="6"></div>
+                    <div class="slider-dot" data-index="7"></div>
+                    <div class="slider-dot" data-index="8"></div>
                 </div>
                 <div class="slider-arrow prev" id="prevBtn"><i class="fas fa-chevron-left"></i></div>
                 <div class="slider-arrow next" id="nextBtn"><i class="fas fa-chevron-right"></i></div>
@@ -1630,12 +1636,13 @@
             // Update dots
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === Math.floor(currentIndex / 1));
+          
             });
         }
         
         nextBtn.addEventListener('click', () => {
             if (currentIndex < productCards.length - 1) {
-                currentIndex += 2;
+                currentIndex += 1;
                 updateSlider();
             }
         });

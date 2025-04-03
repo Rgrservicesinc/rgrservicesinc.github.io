@@ -25,8 +25,7 @@
 
         swiper-container {
             width: 100%;
-            padding-top: 50px;
-            padding-bottom: 50px;
+            padding: 1rem;
             }
 
             swiper-slide {
@@ -192,7 +191,7 @@
 
         /* Categories Section */
         .categories {
-            padding: 80px 0;
+            padding: 2rem 0;
             background-color: white;
         }
 
@@ -285,13 +284,13 @@
 
         /* Featured Products */
         .featured-products {
-            padding: 80px 0;
+            padding: 1rem 0;
             background-color: var(--light);
         }
 
         .products-slider {
             position: relative;
-            padding: 20px 0;
+     
         }
 
         .slider-container {
@@ -310,7 +309,7 @@
         }
 
         .product-card {
-            min-width: calc(33.333% - 20px);
+            min-width: calc(33.333% - 80px);
             margin: 0 10px;
             background-color: white;
             border-radius: 8px;
@@ -818,6 +817,209 @@
                 font-size: 26px;
             }
         }
+
+        .rotating-slider {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.rot-sl  {
+    width: 100% !important;
+    padding: 2rem 0 0 0 !important;
+    max-width: 100% !important;
+}
+
+.rotating-slider__content {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 580px;
+	overflow: hidden;
+	transition: transform 0.5s ease-in-out;
+}
+
+.rotating-slider__background {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	transition: background-image 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.rotating-slider__background::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	backdrop-filter: blur(3px);
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.35);
+	pointer-events: none;
+}
+
+.rotating-slider__wrapper {
+	position: absolute;
+	left: 50%;
+	translate: -100px;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	margin-bottom: 60px;
+	transition: all 1s cubic-bezier(0.2, 0.01, 0.1, 1);
+}
+
+/**
+ * Slider Item
+ */
+
+.rotating-slider__slide {
+	position: relative;
+	overflow: hidden;
+	margin-right: 70px;
+	width: 200px;
+	height: 125px;
+	transition: all 1s cubic-bezier(0.2, 0.01, 0.1, 1);
+}
+
+.rotating-slider__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transform-origin: center;
+	transition: all 1s cubic-bezier(0.2, 0.01, 0.1, 1);
+}
+
+.rotating-slider__slide.active {
+	transform: rotate(-90deg) scaleX(2.25) scaleY(2.4);
+}
+
+.rotating-slider__slide.active .rotating-slider__image {
+	width: 100%;
+	height: 100%;
+	transform: rotate(90deg) scaleX(1.2) scaleY(1.6);
+}
+
+@media (max-width: 480px) {
+    .rotating-slider__slide.active .rotating-slider__image {
+        padding: 1rem;
+    }
+}
+
+.rotating-slider__title {
+	position: absolute;
+	bottom: 28px;
+	overflow: hidden;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 38px;
+	font-family: "Oswald", sans-serif;
+	font-size: 1.7rem;
+	font-weight: 400;
+	line-height: 1;
+	text-transform: uppercase;
+	color: white;
+}
+
+@media (max-width: 760px) {
+
+    .rotating-slider__title {
+        display: none;
+    }
+
+}
+
+.rotating-slider__list {
+	position: absolute;
+	top: 0;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
+	gap: 20px;
+	transition: transform 1.5s cubic-bezier(1, 1, 0.2, 1);
+}
+
+/**
+ * Slider Navigation
+ */
+
+.rotating-slider__navigation {
+	position: absolute;
+	top: 61%;
+	z-index: 1000;
+	display: flex;
+	justify-content: space-between;
+	width: 95%;
+	transform: translateY(-50%);
+}
+
+@media (max-width: 760px) {
+
+    .rotating-slider__navigation {
+        width: 60%;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .rotating-slider__navigation {
+        width: 55%;
+    }
+
+}
+
+.rotating-slider__prev,
+.rotating-slider__next {
+	padding: 15px;
+	border: 1px solid var(--accent);
+	border-radius: 100px;
+	background: transparent;
+	transition: 0.5s all ease-in-out;
+	cursor: pointer;
+}
+
+.rotating-slider__prev img,
+.rotating-slider__next img {
+	transition: 0.5s all ease-in-out;
+}
+
+.rotating-slider__prev.hidden {
+	transform: translateX(-1000%);
+}
+
+.rotating-slider__next.hidden {
+	transform: translateX(1000%);
+}
+
+.rotating-slider__prev:hover,
+.rotating-slider__next:hover {
+	background: var(--accent);
+}
+
+.rotating-slider__prev:hover img,
+.rotating-slider__next:hover img {
+	filter: brightness(0) saturate(100%) invert(0%) sepia(1%) saturate(0%)
+		hue-rotate(185deg) brightness(102%) contrast(100%);
+}
+
+@media screen and (max-width: 575px) {
+	.rotating-slider__navigation {
+		top: 90%;
+	}
+
+	.rotating-slider__title {
+		bottom: 10px;
+	}
+}
     </style>
 </head>
 <body>
@@ -851,6 +1053,65 @@
             </div>
         </div>
     </section>
+
+        <!-- custom slider -->
+        <section>
+            <div class="container rot-sl">
+                <div class="section-title">
+                    <h2>Top Design Trends</h2>
+                </div>
+                <div  class="products-slider">
+                    <section class="base-template">
+                        <div class="wrapper base-template__wrapper">
+                            <div class="base-template__content">
+                                <div class="rotating-slider">
+                                    <div class="rotating-slider__content">
+                                        <div class="rotating-slider__background"></div>
+                                        <div class="rotating-slider__wrapper">
+                                            <div class="rotating-slider__slide" data-title="Modern Shaker Kitchen Cabinet">
+                                                <img class="rotating-slider__image" src="shaker.jpg" alt="Modern Shaker Kitchen Cabinet">
+                                            </div>
+                                            <div class="rotating-slider__slide" data-title="Custom Walk-in Closet System">
+                                                <img class="rotating-slider__image" src="clos.jpg" alt="Custom Walk-in Closet System">
+                                            </div>
+                                            <div class="rotating-slider__slide" data-title="Sliding Door Wardrobe">
+                                                <img class="rotating-slider__image" src="sliding_door.jpg" alt="Sliding Door Wardrobe">
+                                            </div>
+                                            <div class="rotating-slider__slide" data-title="Oak Laminate Flooring">
+                                                <img class="rotating-slider__image" src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Oak Laminate Flooring">
+                                            </div>
+                                            <div class="rotating-slider__slide" data-title="Modern Interior Door">
+                                                <img class="rotating-slider__image" src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Modern Interior Door">
+                                            </div>
+                                             <div class="rotating-slider__slide" data-title="White Kitchen Cabinet">
+                                                <img class="rotating-slider__image" src="white_gloss.jpg" alt="White Kitchen Cabinet">
+                                            </div>
+                                             <div class="rotating-slider__slide" data-title="Rustic Farmhouse Kitchen">
+                                                <img class="rotating-slider__image" src="rustik.jpg" alt="Rustic Farmhouse Kitchen">
+                                            </div>
+                                             <div class="rotating-slider__slide" data-title="Built-in Wardrobe System">
+                                                <img class="rotating-slider__image" src="wardrobe.jpg" alt="Built-in Wardrobe System">
+                                            </div>
+                                        </div>
+                                        <div class="rotating-slider__title">
+                                            <div class="rotating-slider__list"></div>
+                                        </div>
+                                        <div class="rotating-slider__navigation">
+                                            <button class="rotating-slider__prev">
+                                                <img src="https://bato-web-agency.github.io/bato-shared/img/rotating-slider/prev.svg" alt="Previous Slide">
+                                            </button>
+                                            <button class="rotating-slider__next">
+                                                <img src="https://bato-web-agency.github.io/bato-shared/img/rotating-slider/next.svg" alt="Next Slide">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>  
+                </div> 
+            </div>
+        </section>
 
     <!-- Categories Section -->
     <section class="categories" id="categories">
@@ -949,6 +1210,9 @@
   </swiper-container>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+  </section>
+  <section>
         <div class="container">
             <div class="section-title animate">
                 <h2>Our Work</h2>
@@ -1108,7 +1372,6 @@
             </div>
         </div>
     </section>
-    
 
     <!-- Gallery Section -->
     <section class="gallery" id="gallery">
@@ -1202,6 +1465,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -1437,6 +1701,99 @@
                 console.log('Gallery item clicked - would open lightbox');
             });
         });
+        document.addEventListener("DOMContentLoaded", () => {
+	let currentIndex = 0;
+
+	const background = document.querySelector(".rotating-slider__background");
+	const slider = document.querySelector(".rotating-slider__wrapper");
+	const title = document.querySelector(".rotating-slider__list");
+
+	const slides = [...document.querySelectorAll(".rotating-slider__slide")];
+
+	const navigation = {
+		prev: document.querySelector(".rotating-slider__prev"),
+		next: document.querySelector(".rotating-slider__next")
+	};
+
+	const updateBackground = () => {
+		const activeSlide = slides[currentIndex];
+		const activeImage = activeSlide.querySelector("img");
+
+		background.style.backgroundImage = `url(${activeImage.src})`;
+	};
+
+	const updateTitle = () => {
+		const items = slides.map((slide) => slide.getAttribute("data-title"));
+
+		title.innerHTML = "";
+
+		items.forEach((item) => {
+			const span = document.createElement("span");
+
+			span.textContent = item;
+
+			title.appendChild(span);
+		});
+
+		title.style.transform = `translateY(-${currentIndex * 52}px)`;
+	};
+
+	const updateNavigation = () => {
+		navigation.prev.classList.toggle("hidden", currentIndex === 0);
+		navigation.next.classList.toggle(
+			"hidden",
+			currentIndex === slides.length - 1
+		);
+
+		if (currentIndex === 0) {
+			navigation.prev.setAttribute("disabled", "");
+		} else {
+			navigation.prev.removeAttribute("disabled");
+		}
+
+		if (currentIndex === slides.length - 1) {
+			navigation.next.setAttribute("disabled", "");
+		} else {
+			navigation.next.removeAttribute("disabled");
+		}
+	};
+
+	const updateSlider = () => {
+		slides.forEach((slide, index) => {
+			slide.classList.remove("active");
+
+			if (index === currentIndex) {
+				slide.classList.add("active");
+			} else {
+				slide.classList.remove("active");
+			}
+		});
+
+		slider.style.transform = `translateX(-${currentIndex * 270}px)`;
+
+		updateBackground();
+		updateTitle();
+		updateNavigation();
+	};
+
+	navigation.prev.addEventListener("click", () => {
+		if (currentIndex <= 0) return;
+
+		currentIndex--;
+
+		updateSlider();
+	});
+
+	navigation.next.addEventListener("click", () => {
+		if (currentIndex >= slides.length - 1) return;
+
+		currentIndex++;
+
+		updateSlider();
+	});
+
+	updateSlider();
+});
     </script>
 </body>
 </html>

@@ -1629,12 +1629,12 @@
             
             // Update dots
             dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === Math.floor(currentIndex / 2));
+                dot.classList.toggle('active', index === Math.floor(currentIndex / 1));
             });
         }
         
         nextBtn.addEventListener('click', () => {
-            if (currentIndex < productCards.length - 2) {
+            if (currentIndex < productCards.length - 1) {
                 currentIndex += 2;
                 updateSlider();
             }
@@ -1642,7 +1642,7 @@
         
         prevBtn.addEventListener('click', () => {
             if (currentIndex > 0) {
-                currentIndex -= 2;
+                currentIndex -= 1;
                 updateSlider();
             }
         });
@@ -1650,7 +1650,7 @@
         // Dot navigation
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
-                currentIndex = index * 2;
+                currentIndex = index * 1;
                 updateSlider();
             });
         });

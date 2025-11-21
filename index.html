@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="couch-solid.svg">
     <title>RGR Services | Custom Cabinetry & Flooring Solutions</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Global Styles */
@@ -22,8 +24,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-	    
 
         swiper-container {
             width: 100%;
@@ -64,7 +64,7 @@
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 1000000000;
+            z-index: 1000;
             transition: var(--transition);
         }
 
@@ -373,7 +373,6 @@
             display: flex;
             justify-content: center;
             margin-top: 30px;
-		margin-bottom: 30px;
         }
 
         .slider-dot {
@@ -1024,33 +1023,344 @@
 	}
 }
 
-	 .accordion {
-      margin-top: 20px;
+:root {
+    --bg-color: #010314;
+    --subtitle-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.section.ticker {
+    padding: 20px;
+}
+
+/* subtitle mixin converted */
+.subtitle {
+    font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1440 - 320)));
+    font-weight: 500;
+    text-align: center;
+    color: var(--subtitle-color);
+    opacity: 0.8;
+}
+
+.icon {
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    min-height: 24px;
+    object-fit: contain;
+    display: block;
+}
+
+.icon.heart {
+    background: url(https://ig-launch.test-project.pp.ua/img/heart.svg) no-repeat 50% 50% / contain;
+}
+
+.logo {
+    width: 100%;
+    min-width: 150px;
+    height: 100%;
+    min-height: 30px;
+    object-fit: contain;
+}
+
+.logo.amazon,
+.logo.prudential,
+.logo.binance,
+.logo.nyse,
+.logo.nasdaq,
+.logo.okx,
+.logo.dell,
+.logo.bybit,
+.logo.tsx,
+/* .logo.nano {
+    background: url( couch-solid.svg) no-repeat 50% 50% / contain;
+} */
+
+.ticker {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    background-color: var(--bg-color);
+}
+
+/* left gradient */
+.ticker::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: linear-gradient(270deg, #010314 0%, rgba(1, 3, 20, 0) 100%);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    z-index: 3;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1239.98px) {
+    .ticker::before {
+        width: 200px;
     }
-    .accordion-item {
-      border-top: 1px solid #ccc;
+}
+
+@media screen and (max-width: 767.98px) {
+    .ticker::before {
+        width: 100px;
     }
-    .accordion-header {
-      padding: 15px;
-      cursor: pointer;
-/*       background: #f1f1f1; */
-      font-weight: bold;
+}
+
+/* right gradient */
+.ticker::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background: linear-gradient(270deg, #010314 0%, rgba(1, 3, 20, 0) 100%);
+    z-index: 3;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1239.98px) {
+    .ticker::after {
+        width: 200px;
     }
-    .accordion-body {
-      padding: 15px;
-      display: none;
-      background: #fff;
+}
+
+@media screen and (max-width: 767.98px) {
+    .ticker::after {
+        width: 100px;
     }
-    .accordion-item.active .accordion-body {
-      display: block;
-    } 
+}
+
+.ticker__subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.ticker__wrap {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.ticker__content {
+    flex: 0 0 auto;
+    min-width: 100%;
+    height: 35px;
+    display: flex;
+    gap: 20px;
+    animation: ticker 30s linear infinite;
+}
+
+.ticker__logo {
+    width: 150px;
+}
+
+/* animation */
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.circle_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 30px;
+}
+
+
+.circleText {
+  font-family: sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  fill:var(--accent);
+}
+
+.video_header {
+    font-size: 56px;
+    color: #8B6B4A;
+    font-weight: 600;
+    text-align: center;
+        margin: 2rem 0;
+}
+
+.videos {
+    width: 100%;
+    text-align: center;
+
+    /* height: 70em; */
+
+}
+
+
+
+video {
+    width: 100%;
+    /* height: 100%; */
+    margin-top: 2rem;
+}
+
+
+.Black img {
+    width: 100%;
+}
+
+/* Popup Background */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s ease-in-out;
+    z-index: 9999;
+}
+
+/* When popup is active */
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Popup Box */
+.popup-content {
+    position: relative;
+    width: 90%;
+    max-width: 450px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    animation: scaleIn 0.4s ease;
+}
+
+/* Animation */
+@keyframes scaleIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Title Styles */
+.popup h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.popup h3 {
+    color: var(--primary);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* Product Image */
+.popup-img {
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.popup img {
+    max-width: 150px;
+    max-height: 300px;
+}
+
 
     </style>
 </head>
 <body>
+
+    <!-- Black Friday Popup -->
+<div id="blackFridayPopup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn">&times;</span>
+
+        <div class="popup-inner">
+            <h2>BLACK FRIDAY SALE</h2>
+            <h3>🔥 Up to <strong>65% OFF</strong> 🔥</h3>
+            <p>Kitchen Cabinets • Closets • Vanities</p>
+
+            <img src="black.png"
+                 alt="Kitchen Cabinets" class="popup-img">
+        </div>
+    </div>
+</div>
+
     <!-- Header -->
     <header id="header">
+                   <section class="section ticker">
+	<!-- <h2 class="ticker__subtitle subtitle"><span>RGR Services Inc</span> <span class="icon heart"></span>
+		<span>Black Friday -65%</span>
+	</h2> -->
+	<div class="ticker__wrap">
+		<div class="ticker__content">
+			<div class="tricker__logo logo amazon">Black Friday -65%</div>
+			<div class="tricker__logo logo prudential">Black Friday -65%</div>
+			<div class="tricker__logo logo binance">Black Friday -65%</div>
+			<div class="tricker__logo logo nyse">Black Friday -65%</div>
+			<div class="tricker__logo logo nasdaq">Black Friday -65%</div>
+			<div class="tricker__logo logo okx">Black Friday -65%</div>
+			<div class="tricker__logo logo dell">Black Friday -65%</div>
+			<div class="tricker__logo logo bybit">Black Friday -65%</div>
+			<div class="tricker__logo logo tsx">Black Friday -65%</div>
+			<div class="tricker__logo logo nano">Black Friday -65%</div>
+		</div>
+		<div class="ticker__content">
+			<div class="tricker__logo logo amazon">Black Friday -65%</div>
+			<div class="tricker__logo logo prudential">Black Friday -65%</div>
+			<div class="tricker__logo logo binance">Black Friday -65%</div>
+			<div class="tricker__logo logo nyse">Black Friday -65%</div>
+			<div class="tricker__logo logo nasdaq">Black Friday -65%</div>
+			<div class="tricker__logo logo okx">Black Friday -65%</div>
+			<div class="tricker__logo logo dell">Black Friday -65%</div>
+			<div class="tricker__logo logo bybit">Black Friday -65%</div>
+			<div class="tricker__logo logo tsx">Black Friday -65%</div>
+			<div class="tricker__logo logo nano">Black Friday -65%</div>
+		</div>
+	</div>
+</section>
         <div class="container">
+
+
+
             <nav>
                 <a href="#" class="logo"><i class="fas fa-couch"></i> RGR Services</a>
                 <div class="mobile-menu" id="mobileMenu">
@@ -1079,6 +1389,30 @@
         </div>
     </section>
 
+    <section class="circle_text">
+        <svg viewBox="0 0 2600 2200">
+            <defs>
+                <path id="path-1" fill="none" d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250"></path>
+                <path id="path-2" fill="none" d="M 50 300 Q 100 50 250 200 Q 350 350 450 200 Q 600 50 700 350 "></path>
+            </defs>
+
+            <text>
+                <textPath class="circleText" xlink:href="#path-1">
+                RGR Services inc Black Friday -65%
+                </textPath>
+            </text>
+        </svg>
+    </section>
+
+    <section class="videos"> 
+        <span class="video_header">Black Friday -65%</span>
+        <video autoplay="autoplay" muted controls="false">
+        <source src="vids.mp4" type="video/mp4">
+        <source src="vids.ogg" type="video/ogg">
+
+        </video>    
+        </section>
+
         <!-- custom slider -->
         <section>
             <div class="container rot-sl">
@@ -1093,6 +1427,15 @@
                                     <div class="rotating-slider__content">
                                         <div class="rotating-slider__background"></div>
                                         <div class="rotating-slider__wrapper">
+                                              <div class="rotating-slider__slide" data-title="2025 Best seller">
+                                                <img class="rotating-slider__image" src="mek.jpg" alt="Modern Shaker Kitchen Cabinet">
+                                            </div>
+                                              <div class="rotating-slider__slide" data-title="2024 best seller">
+                                                <img class="rotating-slider__image" src="erku.jpg" alt="Modern Shaker Kitchen Cabinet">
+                                            </div>
+                                              <div class="rotating-slider__slide" data-title="Modern Kitchen Cabinet">
+                                                <img class="rotating-slider__image" src="ereq.jpg" alt="Modern Shaker Kitchen Cabinet">
+                                            </div>
                                             <div class="rotating-slider__slide" data-title="Modern Shaker Kitchen Cabinet">
                                                 <img class="rotating-slider__image" src="shaker.jpg" alt="Modern Shaker Kitchen Cabinet">
                                             </div>
@@ -1137,6 +1480,10 @@
                 </div> 
             </div>
         </section>
+
+<section class="Black">
+<img src="black.png" alt="">
+</section>
 
     <!-- Categories Section -->
     <section class="categories" id="categories">
@@ -1476,7 +1823,7 @@
                         <img src="smart_clos.jpg" alt="Closet Organization">
                     </div>
                     <div class="blog-content">
-                        <div class="blog-date">May 28, 2019</div>
+                        <div class="blog-date">May 28, 2024</div>
                         <h3>Maximizing Space: Smart Closet Organization</h3>
                         <p>Learn how to optimize your closet space with these innovative organization solutions that combine functionality with style...</p>
                         <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
@@ -1487,7 +1834,7 @@
                         <img src="flooring.jpg" alt="Flooring Options">
                     </div>
                     <div class="blog-content">
-                        <div class="blog-date">April 10, 2022</div>
+                        <div class="blog-date">April 10, 2024</div>
                         <h3>Choosing the Right Flooring for Your Home</h3>
                         <p>A comprehensive guide to selecting the perfect flooring material that matches your lifestyle and aesthetic preferences...</p>
                         <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
@@ -1497,51 +1844,7 @@
         </div>
     </section>
 
-<section class="container" id="privacy">
-        <h2 style="text-align: center;" class="aheader">Privacy Policy & Terms</h2>
-        <div class="accordion">
-          <div class="accordion-item">
-            <div class="accordion-header">1. Data Collection</div>
-            <div class="accordion-body">
-              We collect only the minimum data necessary to provide and improve our services, such as usage patterns and basic user information.
-            </div>
-          </div>
-          <div class="accordion-item">
-            <div class="accordion-header">2. Data Usage</div>
-            <div class="accordion-body">
-              Your data is used strictly for service improvements, personalization, and support. We do not sell or share your information without consent.
-            </div>
-          </div>
-          <div class="accordion-item">
-            <div class="accordion-header">3. Data Security</div>
-            <div class="accordion-body">
-              We use industry-standard security measures, including SSL encryption, firewalls, and secure storage, to protect your personal information.
-            </div>
-          </div>
-          <div class="accordion-item">
-            <div class="accordion-header">4. User Rights</div>
-            <div class="accordion-body">
-              You have the right to access, update, or delete your data at any time. Contact support to request account or data changes.
-            </div>
-          </div>
-          <div class="accordion-item">
-            <div class="accordion-header">5. Terms of Use</div>
-            <div class="accordion-body">
-              By using our services, you agree to comply with our terms of use and privacy practices outlined in this policy.
-            </div>
-          </div>
-        </div>
-      </section>
 
-	  <script>
-        const allHeaders = document.querySelectorAll('.accordion-header');
-        allHeaders.forEach(header => {
-          header.addEventListener('click', () => {
-            const item = header.parentElement;
-            item.classList.toggle('active');
-          });
-        });
-      </script>
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
@@ -1590,7 +1893,7 @@
                     </div>
                 </div>
                 <div class="contact-form animate">
-                    <form id="contact-form">
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" name="name" required>
@@ -1601,23 +1904,23 @@
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="tel">
+                            <input type="tel" id="phone" name="phone">
                         </div>
                         <div class="form-group">
                             <label for="service">Service Interested In</label>
-                            <select id="service"  name="evt" class="contact-form input">
+                            <select id="service" name="service" class="contact-form input">
                                 <option value="">Select a service</option>
-                                <option name="Kitchen Cabinets" value="kitchen">Kitchen Cabinets</option>
-                                <option name="Closets" value="closets">Closets</option>
-                                <option name="Wardrobes" value="wardrobes">Wardrobes</option>
-                                <option name="Laminate Flooring" value="flooring">Laminate Flooring</option>
-                                <option name="Doors" value="doors">Doors</option>
-                                <option name="Other" value="other">Other</option>
+                                <option value="kitchen">Kitchen Cabinets</option>
+                                <option value="closets">Closets</option>
+                                <option value="wardrobes">Wardrobes</option>
+                                <option value="flooring">Laminate Flooring</option>
+                                <option value="doors">Doors</option>
+                                <option value="other">Other</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="message">Your Message</label>
-                            <textarea id="message" value="Send" name="message" required></textarea>
+                            <textarea id="message" name="message" required></textarea>
                         </div>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
@@ -1625,6 +1928,7 @@
             </div>
         </div>
     </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1662,38 +1966,11 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2019 RGR Services. All Rights Reserved.</p>
+                <p>&copy; 2024 RGR Services. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // https://dashboard.emailjs.com/admin/account
-            emailjs.init({
-              publicKey: "QX8_HetNkxjyO2WfX",
-            });
-        })();
-    </script>
-    <script type="text/javascript">
-        window.onload = function() {
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                // these IDs from the previous steps
-                emailjs.sendForm('service_i4lm6d8', 'template_vgpm1eo', this)
-                    .then(() => {
-                        alert('Thank you for your message! We will contact you soon.');
-                        document.getElementById('contact-form').reset();
-                    }, (error) => {
-                        alert('ERROR!');
-                    });
-            });
-        }
-    </script>
-	
     <script>
         // Mobile Menu Toggle
         const mobileMenu = document.getElementById('mobileMenu');
@@ -1775,7 +2052,24 @@
         window.addEventListener('load', checkScroll);
 
         // Contact Form Submission
-
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the data to a server
+            console.log('Form submitted:', { name, email, service, message });
+            
+            // Show success message
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
 
         // Gallery Lightbox (would need additional HTML/CSS for full implementation)
         const galleryItems = document.querySelectorAll('.gallery-item');
@@ -1879,6 +2173,41 @@
 
 	updateSlider();
 });
+
+
+gsap.set("svg", {autoAlpha:1})
+
+gsap.timeline({repeat:-1})
+  .from(".circleText", {
+  attr: { startOffset: "110%" },
+  duration: 5, ease: "none",
+  stagger:15
+})
+  .to(".circleText", {autoAlpha:0, duration: 1.5, stagger:15}, 5)
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Show popup only once per session
+    if (!sessionStorage.getItem("blackFridaySeen")) {
+        const popup = document.getElementById("blackFridayPopup");
+        popup.classList.add("show");
+
+        // Auto close after 5 seconds
+        setTimeout(() => {
+            popup.classList.remove("show");
+        }, 5000);
+
+        // Mark popup as shown
+        sessionStorage.setItem("blackFridaySeen", "true");
+    }
+
+    // Manual close
+    document.querySelector(".close-btn").addEventListener("click", () => {
+        document.getElementById("blackFridayPopup").classList.remove("show");
+    });
+});
+
+
     </script>
 </body>
 </html>

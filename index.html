@@ -1406,7 +1406,13 @@ video {
 
     <section class="videos"> 
         <span class="video_header">Black Friday -65%</span>
-        <video autoplay="autoplay" muted controls="false">
+        <video   autoplay 
+    muted 
+    playsinline 
+    webkit-playsinline 
+    loop
+	preload="auto" 
+    controls="false">
         <source src="vids.mp4" type="video/mp4">
         <source src="vids.ogg" type="video/ogg">
 
@@ -2211,3 +2217,4 @@ gsap.timeline({repeat:-1})
     </script>
 </body>
 </html>
+
